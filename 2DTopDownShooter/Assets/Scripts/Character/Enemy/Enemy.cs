@@ -15,11 +15,6 @@ public class Enemy : MonoBehaviour
 
     private string Currentstate = "Patrol";
 
-    // Bullet
-    //[SerializeField]
-    //private float BulletSpeed = 35f;
-    //public GameObject BulletPrefab;
-
     // Waypoints
     private Transform nextWaypoint;
     [SerializeField]
@@ -83,12 +78,6 @@ public class Enemy : MonoBehaviour
                     // Move to target
                     Vector2 nextPosition = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
                     transform.position = nextPosition;
-
-                    // Bullet
-                    //GameObject bulletClone = Instantiate(BulletPrefab, transform.position, transform.rotation);
-                    //Rigidbody2D rigidbody = bulletClone.GetComponent<Rigidbody2D>();
-                    //rigidbody.velocity = bulletClone.transform.up * BulletSpeed;
-                    //Destroy(bulletClone, 1.5f);
                 }                
             }
         }

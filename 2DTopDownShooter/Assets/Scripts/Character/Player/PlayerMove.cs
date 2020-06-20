@@ -23,7 +23,7 @@ public class PlayerMove : MonoBehaviour
     {        
         _rigidbody = GetComponent<Rigidbody2D>();
 
-        Speed = 19;        
+        Speed = 22;        
     }
 
     // Update is called once per frame

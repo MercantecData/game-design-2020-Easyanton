@@ -30,7 +30,7 @@ public class Shoot : MonoBehaviour
         GameObject bulletClone = Instantiate(BulletPrefab, transform.position, transform.rotation);
         Rigidbody2D rigidbody = bulletClone.GetComponent<Rigidbody2D>();
         rigidbody.velocity = bulletClone.transform.up * BulletSpeed;
-        Destroy(bulletClone, 2f);
+        Destroy(bulletClone, 3f);
 
         // Bullet count
         GameController.Instance.BulletCount += 1;
