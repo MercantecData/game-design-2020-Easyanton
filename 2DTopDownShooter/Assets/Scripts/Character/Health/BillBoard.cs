@@ -9,8 +9,5 @@ public class BillBoard : MonoBehaviour
     void LateUpdate()
     {
         transform.LookAt(transform.position + Cam.forward);
-
-        //var wantedPos = Camera.main.WorldToScreenPoint(transform.position);
-        //transform.position = wantedPos;
     }
 }

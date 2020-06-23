@@ -12,14 +12,20 @@ public class BulletCanon : MonoBehaviour
 
     public LayerMask mask;
 
+    // Shake
+    [SerializeField]
+    private GameObject ShakerCameraObject;
+    private ShakeBehavior Shaker;
+
+    private void Awake()
+    {
+        Shaker = ShakerCameraObject.GetComponent(typeof(ShakeBehavior)) as ShakeBehavior;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Fire", 0.1f, 0.7f);
-    }
-
-    private void Update()
-    {
+        InvokeRepeating("Fire", 0.1f, 0.8f);
     }
 
     // Update is called once per frame
@@ -36,8 +42,8 @@ public class BulletCanon : MonoBehaviour
         rigidbody.velocity = bulletClone.transform.up * BulletSpeed;
         Destroy(bulletClone, 3f);
 
-        // Bullet count
-        GameController.Instance.BulletCount += 1;
+        // Shake screen
+        Shaker.TriggerShake();
 
         // Muzzle flash        
         Vector3 muzzlePosition = new Vector3(transform.position.x + 0.4f, transform.position.y + 0.6f, transform.position.z);
