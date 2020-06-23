@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Shoot : MonoBehaviour
-{
-    [SerializeField]
-    private float BulletSpeed = 65f;
+{    
+    private float BulletSpeed = 68f;
     public GameObject BulletPrefab;
     public Transform MuzzleFlashPrefab;
 

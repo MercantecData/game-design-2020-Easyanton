@@ -5,9 +5,8 @@ using UnityEngine;
 using UnityEngine.Windows.Speech;
 
 public class PlayerMove : MonoBehaviour
-{    
-    [SerializeField]
-    private float Speed;
+{        
+    private float Speed = 35f;
     private Rigidbody2D _rigidbody;
 
     // Animation
@@ -23,7 +22,7 @@ public class PlayerMove : MonoBehaviour
     {        
         _rigidbody = GetComponent<Rigidbody2D>();
 
-        Speed = 29;        
+        //Speed = 35f;        
     }
 
     // Update is called once per frame

@@ -5,13 +5,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Enemy peed and range
-    [SerializeField]
-    private float speed = 8f;
-    [SerializeField]
-    private float rangeMove = 25f;
-    [SerializeField]
-    private float rangeAttack = 10f;
+    // Enemy peed and range    
+    private float speed = 10f;    
+    private float rangeMove = 27f;    
+    private float rangeAttack = 16f;
 
     private string Currentstate = "Patrol";
 

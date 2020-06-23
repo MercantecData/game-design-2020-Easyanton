@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletEnemy : MonoBehaviour
 {    
-    private float BulletSpeed = 25f;
+    private float BulletSpeed = 40f;
     public GameObject BulletPrefab;
     public Transform MuzzleFlashPrefab;
     
