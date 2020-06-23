@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -23,9 +25,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Text BulletUI;
     [SerializeField]
-    private Text YouWin;
+    private GameObject YouWin;
     [SerializeField]
-    private Text YouLose;
+    private GameObject YouLose;
     [SerializeField]
     private GameObject BossModal;
 
@@ -64,5 +66,17 @@ public class GameController : MonoBehaviour
         {
             YouLose.gameObject.SetActive(true);
         }
+    }
+
+    public void RestartLevel()
+    {
+        // Restart game scene.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void NextMission()
+    {
+        // Next game scene.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
