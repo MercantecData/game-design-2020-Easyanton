@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     [SerializeField]
-    private float BulletSpeed = 40f;
+    private float BulletSpeed = 65f;
     public GameObject BulletPrefab;
     public Transform MuzzleFlashPrefab;
 
