@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Enemy peed and range    
+    // Enemy peed and range.    
     private float speed = 10f;    
     private float rangeMove = 27f;    
     private float rangeAttack = 16f;
 
     private string Currentstate = "Patrol";
 
-    // Waypoints
+    // Waypoints.
     private Transform nextWaypoint;
     [SerializeField]
     private Transform waypoint1;
@@ -21,14 +21,14 @@ public class Enemy : MonoBehaviour
 
     public LayerMask mask;
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update.
     void Start()
     {
         nextWaypoint = waypoint1;
     }
 
 
-    // Update is called once per frame
+    // Update is called once per frame.
     void Update()
     {
         if (Currentstate == "Patrol")
@@ -66,13 +66,13 @@ public class Enemy : MonoBehaviour
             {
                 Transform target = GameObject.FindGameObjectWithTag("Player").transform;
 
-                // Look at taget
+                // Look at taget.
                 LookAtTarget(target);
 
-                // Shoot target
+                // Shoot target.
                 if (!TargetAqurired(rangeAttack))
                 {
-                    // Move to target
+                    // Move to target.
                     Vector2 nextPosition = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
                     transform.position = nextPosition;
                 }                

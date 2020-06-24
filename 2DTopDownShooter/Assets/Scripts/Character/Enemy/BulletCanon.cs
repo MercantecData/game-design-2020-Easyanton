@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BulletCanon : MonoBehaviour
 {
-    private float BulletSpeed = 55f;
+    private float BulletSpeed = 60f;
     public GameObject BulletPrefab;
     public Transform MuzzleFlashPrefab;
 
-    private float RangeAttack = 30f;
+    private float RangeAttack = 50f;
 
     public LayerMask mask;
 
@@ -36,6 +36,9 @@ public class BulletCanon : MonoBehaviour
             return;
         }
 
+        // Canon sound effect
+        Audio.Instance.CanonShoot();
+
         // Bullet
         GameObject bulletClone = Instantiate(BulletPrefab, transform.position, transform.rotation);
         Rigidbody2D rigidbody = bulletClone.GetComponent<Rigidbody2D>();
@@ -48,7 +51,7 @@ public class BulletCanon : MonoBehaviour
         // Muzzle flash        
         Vector3 muzzlePosition = new Vector3(transform.position.x + 0.4f, transform.position.y + 0.6f, transform.position.z);
         Transform muzzleClone = (Transform)Instantiate(MuzzleFlashPrefab, muzzlePosition, transform.rotation);
-        float size = Random.Range(0.6f, 0.10f);
+        float size = Random.Range(0.8f, 0.20f);
         muzzleClone.localScale = new Vector3(size, size, size);
 
         Destroy(muzzleClone.gameObject, 0.1f);

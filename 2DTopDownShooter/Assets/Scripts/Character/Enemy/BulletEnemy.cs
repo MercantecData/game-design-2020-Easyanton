@@ -30,16 +30,16 @@ public class BulletEnemy : MonoBehaviour
             return;
         }
 
-        // Bullet
+        // Single shot sound effect.
+        Audio.Instance.SingleShoot();
+
+        // Bullet.
         GameObject bulletClone = Instantiate(BulletPrefab, transform.position, transform.rotation);
         Rigidbody2D rigidbody = bulletClone.GetComponent<Rigidbody2D>();
         rigidbody.velocity = bulletClone.transform.up * BulletSpeed;
         Destroy(bulletClone, 3f);
 
-        // Bullet count
-        GameController.Instance.BulletCount += 1;
-
-        // Muzzle flash        
+        // Muzzle flash.      
         Vector3 muzzlePosition = new Vector3(transform.position.x + 0.4f, transform.position.y + 0.6f, transform.position.z);
         Transform muzzleClone = (Transform)Instantiate(MuzzleFlashPrefab, muzzlePosition, transform.rotation);
         float size = Random.Range(0.3f, 0.6f);
@@ -52,12 +52,14 @@ public class BulletEnemy : MonoBehaviour
     {
         GameObject targetobjcet = GameObject.FindGameObjectWithTag("Player");
 
+        // In range.
         bool inRange = false;
         if (Vector2.Distance(targetobjcet.transform.position, transform.position) < range)
         {
             inRange = true;
         }
 
+        // In vision.
         var linecast = Physics2D.Linecast(transform.position, targetobjcet.transform.position, mask);
 
         bool inVision = false;

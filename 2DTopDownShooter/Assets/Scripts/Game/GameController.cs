@@ -55,8 +55,10 @@ public class GameController : MonoBehaviour
     {
         if (Destroyed == 3)
         {
+            Audio.Instance.PlayBossSong();
             BossModal.SetActive(true);
             BossDoor.SetActive(false);
+
         }
         if (Destroyed == 4)
         {
