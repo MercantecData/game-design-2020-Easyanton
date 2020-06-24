@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject UI;
     [SerializeField]
-    private Text BulletUI;
+    private TextMeshProUGUI BulletUI;
     [SerializeField]
     private GameObject YouWin;
     [SerializeField]

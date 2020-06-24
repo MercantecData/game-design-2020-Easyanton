@@ -6,7 +6,7 @@ using UnityEngine.Windows.Speech;
 
 public class PlayerMove : MonoBehaviour
 {        
-    private float Speed = 35f;
+    private float Speed = 33f;
     private Rigidbody2D _rigidbody;
 
     // Animation
