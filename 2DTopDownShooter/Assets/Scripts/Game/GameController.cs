@@ -10,6 +10,10 @@ public class GameController : MonoBehaviour
     // Game controller
     public static GameController Instance;
 
+    // Player data save
+    [SerializeField]
+    private Transform playerDataPrefab;
+
     // Player
     public int BulletCount = 0;
     public int Destroyed = 0;
@@ -41,13 +45,22 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Load data from last scene.
+        var sevedData = GameObject.FindGameObjectWithTag("NextScene");
+
+        if (sevedData != null)
+        {
+            BulletCount = sevedData.GetComponent<NextSceneData>().BulletCount;
+        }
+
+        // Win or lose check.
         InvokeRepeating("WinOrLoseCheck", 1f, 0.5f);
     }
 
-    // Update is called once per frame
+    // Update is called once per frame.
     void Update()
     {
-        // UI        
+        // UI.        
         BulletUI.text = $"Bullet count: {BulletCount} \r\nEnemy destroyed: {Destroyed}";          
     }
 
@@ -78,6 +91,9 @@ public class GameController : MonoBehaviour
 
     public void NextMission()
     {
+        // Move bullet count to next scene.                
+        Instantiate(playerDataPrefab, new Vector3(), transform.rotation);
+
         // Next game scene.
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

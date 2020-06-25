@@ -6,8 +6,8 @@ public class ShakeBehavior : MonoBehaviour
 {    
     private Transform transform;    
     private float shakeDuration = 0f;    
-    private float shakeMagnitude = 0.5f;    
-    private float dampingSpeed = 0.2f;
+    private float shakeMagnitude = 0.9f;    
+    private float dampingSpeed = 0.3f;
 
     // Position of the GameObject
     Vector3 initialPosition;
