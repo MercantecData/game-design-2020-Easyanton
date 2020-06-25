@@ -5,10 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private Animator Anim;
+
     public void PlayGame()
     {
         // Load game scene.
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    private IEnumerator LoadScene(int levelIndex)
+    {
+        LevelLoader.instance.FadeEffekt();
+
+        yield return new WaitForSeconds(1f);
+
+        // Next game scene.
+        SceneManager.LoadScene(levelIndex);
     }
 
     public void QuitGame()

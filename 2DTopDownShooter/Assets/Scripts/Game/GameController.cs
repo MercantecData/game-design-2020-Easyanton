@@ -10,20 +10,20 @@ public class GameController : MonoBehaviour
     // Game controller
     public static GameController Instance;
 
-    // Player data save
+    // Player data save.
     [SerializeField]
     private Transform playerDataPrefab;
 
-    // Player
+    // Player.
     public int BulletCount = 0;
     public int Destroyed = 0;
     public bool PlayerDestroyed = false;
 
-    // Enemy
+    // Enemy.
     [SerializeField]
     private GameObject BossDoor;
 
-    // UI
+    // UI.
     [SerializeField]
     private GameObject UI;
     [SerializeField]
@@ -34,6 +34,9 @@ public class GameController : MonoBehaviour
     private GameObject YouLose;
     [SerializeField]
     private GameObject BossModal;
+
+    // Animations.
+    private Animator Anim;
 
     void Awake()
     {
@@ -94,7 +97,18 @@ public class GameController : MonoBehaviour
         // Move bullet count to next scene.                
         Instantiate(playerDataPrefab, new Vector3(), transform.rotation);
 
+        // Load next scene with animation.
+        StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
+
+    }
+
+    private IEnumerator LoadScene(int levelIndex)
+    {
+        LevelLoader.instance.FadeEffekt();
+
+        yield return new WaitForSeconds(1f);
+
         // Next game scene.
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(levelIndex);
     }
 }
