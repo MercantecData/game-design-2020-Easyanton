@@ -8,7 +8,7 @@ public class FollowPlayer : MonoBehaviour
     private Transform player;
     private Vector3 velocity;
 
-    // Update is called once per frame
+    // Update is called once per frame.
     void Update()
     {
         var playerPosition = player.position;
@@ -16,6 +16,5 @@ public class FollowPlayer : MonoBehaviour
 
         var target = Vector3.SmoothDamp(transform.position, playerPosition, ref velocity, 0.3f);
         transform.position = target;
-
     }
 }

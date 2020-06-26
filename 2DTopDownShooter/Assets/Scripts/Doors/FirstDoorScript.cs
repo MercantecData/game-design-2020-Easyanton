@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FirstDoorScript : MonoBehaviour
 {
-    // Animation
+    // Animation.
     private Animator animator;
 
-    // Range
+    // Range.
     private float range = 17f;
     public LayerMask mask;
 
@@ -16,13 +16,7 @@ public class FirstDoorScript : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    // Update is called once per frame.
     void Update()
     {        
         if (TargetAqurired(range))

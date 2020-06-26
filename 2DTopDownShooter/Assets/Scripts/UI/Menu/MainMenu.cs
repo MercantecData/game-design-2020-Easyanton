@@ -9,8 +9,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        // Load game scene.
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // Load game scene.        
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
     }
 

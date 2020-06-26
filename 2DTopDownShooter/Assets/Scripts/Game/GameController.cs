@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    // Game controller
+    // Game controller.
     public static GameController Instance;
 
     // Player data save.
@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
         UI.SetActive(true);
     }
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update.
     void Start()
     {
         // Load data from last scene.

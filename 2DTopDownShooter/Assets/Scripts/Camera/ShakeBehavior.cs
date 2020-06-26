@@ -9,12 +9,11 @@ public class ShakeBehavior : MonoBehaviour
     private float shakeMagnitude = 0.9f;    
     private float dampingSpeed = 0.3f;
 
-    // Position of the GameObject
+    // Position of the GameObject.
     Vector3 initialPosition;
 
     void Awake()
     {
-
         if (transform == null)
         {
             transform = GetComponent(typeof(Transform)) as Transform;

@@ -37,7 +37,6 @@ public class PlayerHealth : MonoBehaviour
 
             if (Health <= 0)
             {
-                //Destroy(this.gameObject);
                 animator.SetBool("Explode", true);
                 Destroy(this.gameObject, 1f);
             }

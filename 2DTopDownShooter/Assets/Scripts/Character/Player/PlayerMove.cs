@@ -9,7 +9,7 @@ public class PlayerMove : MonoBehaviour
     private float Speed = 33f;
     private Rigidbody2D _rigidbody;
 
-    // Animation
+    // Animation.
     private Animator animator;
 
     private void Awake()
@@ -17,15 +17,13 @@ public class PlayerMove : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update.
     void Start()
     {        
-        _rigidbody = GetComponent<Rigidbody2D>();
-
-        //Speed = 35f;        
+        _rigidbody = GetComponent<Rigidbody2D>();     
     }
 
-    // Update is called once per frame
+    // Update is called once per frame.
     void Update()
     {        
         float y = Input.GetAxis("Vertical");

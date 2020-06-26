@@ -12,7 +12,7 @@ public class BulletCanon : MonoBehaviour
 
     public LayerMask mask;
 
-    // Shake
+    // Shake.
     [SerializeField]
     private GameObject ShakerCameraObject;
     private ShakeBehavior Shaker;
@@ -22,13 +22,13 @@ public class BulletCanon : MonoBehaviour
         Shaker = ShakerCameraObject.GetComponent(typeof(ShakeBehavior)) as ShakeBehavior;
     }
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update.
     void Start()
     {
         InvokeRepeating("Fire", 0.1f, 0.8f);
     }
 
-    // Update is called once per frame
+    // Update is called once per frame.
     private void Fire()
     {
         if (!TargetAqurired(RangeAttack))
@@ -36,19 +36,19 @@ public class BulletCanon : MonoBehaviour
             return;
         }
 
-        // Canon sound effect
+        // Canon sound effect.
         Audio.Instance.CanonShoot();
 
-        // Bullet
+        // Bullet.
         GameObject bulletClone = Instantiate(BulletPrefab, transform.position, transform.rotation);
         Rigidbody2D rigidbody = bulletClone.GetComponent<Rigidbody2D>();
         rigidbody.velocity = bulletClone.transform.up * BulletSpeed;
         Destroy(bulletClone, 3f);
 
-        // Shake screen
+        // Shake screen.
         Shaker.TriggerShake();
 
-        // Muzzle flash        
+        // Muzzle flash.       
         Vector3 muzzlePosition = new Vector3(transform.position.x + 0.4f, transform.position.y + 0.6f, transform.position.z);
         Transform muzzleClone = (Transform)Instantiate(MuzzleFlashPrefab, muzzlePosition, transform.rotation);
         float size = Random.Range(0.8f, 0.20f);

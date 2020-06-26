@@ -26,7 +26,7 @@ public class Audio : MonoBehaviour
     // Active.
     private bool BossActive = false;
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update.
     void Start()
     {
         // Instance
@@ -44,7 +44,7 @@ public class Audio : MonoBehaviour
         ShotSource.playOnAwake = false;
         ShotSource.loop = false;
 
-        // Canon shot
+        // Canon shot.
         CanonSource = gameObject.AddComponent<AudioSource>();
         CanonSource.clip = CanonShotEffect;
         CanonSource.playOnAwake = false;

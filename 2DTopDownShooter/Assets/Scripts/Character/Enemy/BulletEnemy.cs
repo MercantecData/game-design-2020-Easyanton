@@ -12,7 +12,7 @@ public class BulletEnemy : MonoBehaviour
 
     public LayerMask mask;
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update.
     void Start()
     {      
         InvokeRepeating("Fire", 0.1f, 0.7f);
@@ -22,7 +22,7 @@ public class BulletEnemy : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
+    // Update is called once per frame.
     private void Fire()
     {
         if (!TargetAqurired(RangeAttack))
